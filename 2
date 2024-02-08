@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int const row = 7;
+    int arr[row][row] = {0};
+    int num = 0;
+    
+    // заполняем элементы главной диагонали нулями
+    for (int i = 0; i < row; i++){
+        arr[i][i] = 0;
+    }
+    
+    // заполняем элементы выше главной диагонали нулями
+    for (int i = 0; i < row; i++){ 
+        for (int j = i + 1; j < row; j++){
+            arr[i][j] = 0;
+        }
+    }
+    // заполняем элементы ниже главной диагонали числами
+    for (int i = 0; i < row; i++){ 
+        for (int j = 0; j < i; j++){
+                arr[i][j] = i - j;
+        }
+    }
+    
+    for (int i = 0; i < row; i++){
+        for (int j = 0; j < row; j++){
+            cout << arr[i][j] << " ";
+        }
+    cout << endl;
+    }
+}
